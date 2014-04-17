@@ -1,4 +1,8 @@
 // customize bootstrap variables here:
 @import "compass/reset";
+@import "compass/css3";
 @import "variables";
 @import "bootstrap";
+
+// Own styles
+@import "base";

@@ -3,6 +3,7 @@ require.config({
 		jquery: 'lib/jquery.min',
 		backbone: 'lib/backbone.min',
 		underscore: 'lib/underscore.min',
+		iban: 'lib/iban',
 		text: 'lib/require.text.min',
 		template: '../template'
 	}

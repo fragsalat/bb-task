@@ -1,0 +1,25 @@
+body {
+	padding-top: 51px;
+}
+
+.margin-top {
+	margin-top: 20px;
+}
+
+dl {
+	max-width: 750px;
+	font-size: 0;
+	dt {
+		@include inline-block(middle);
+		width: 150px;
+		text-align: right;
+		padding: 5px;
+		font-size: 13px;
+	}
+	dd {
+		@include inline-block(middle);
+		width: 500px;
+		padding: 5px;
+		font-size: 13px;
+	}
+}
