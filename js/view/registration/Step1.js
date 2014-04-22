@@ -2,11 +2,14 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
+	'model/User',
 	'text!template/registration/step1.html',
-	'model/User'
-], function($, _, Backbone, template, User) {
+	'handlebars'
+], function($, _, Backbone, User, template) {
 
 	var Step1 = Backbone.View.extend({
+
+		template: Handlebars.compile(template),
 
 		events: {
 			'submit form': 'submit'
@@ -14,11 +17,24 @@ define([
 
 		data: {},
 
+		/**
+		 * Identifier if the form was valid submitted
+		 * @type boolean
+		 */
+		_done: false,
+
+		initialize: function(options) {
+			for (var $i in options) {
+				this[$i] = options[$i];
+			}
+		},
+
 		submit: function(event) {
 			event.preventDefault();
+			console.log('step1', this.data);
 
 			var $user = new User({
-				firstName: $(event.currentTarget).find('#firstName').val(), 
+				firstName: $(event.currentTarget).find('#firstName').val(),
 				lastName: $(event.currentTarget).find('#lastName').val(),
 				birthday: $(event.currentTarget).find('#birthday').val()
 			});
@@ -28,15 +44,16 @@ define([
 			}
 			else {
 				this.data['user'] = $user;
+				this._done = true;
 			}
 		},
 
-		getData: function() {
-			return this.data;
+		isDone: function() {
+			return this._done;
 		},
 
 		render: function() {
-			this.$el.html(template);
+			this.$el.prepend(this.template(this.data));
 		}
 	});
 

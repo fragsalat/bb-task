@@ -30,11 +30,11 @@ define([
 		 * @return String Error if validation fails
 		 */
 		validate: function(properties, options) {
-			if (!properties.firstName || this.nameRegex.test(properties.firstName)) {
-				return 'The login must contain '
+			if (!properties.firstName || !this.nameRegex.test(properties.firstName)) {
+				return 'First name is missing or wrong';
 			}
-			if (!properties.lastName || this.nameRegex.test(properties.lastName)) {
-				return 'The login must contain '
+			if (!properties.lastName || !this.nameRegex.test(properties.lastName)) {
+				return 'Last name is missing or wrong';
 			}
 		}
 	});

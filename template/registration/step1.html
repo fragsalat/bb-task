@@ -4,9 +4,11 @@
 
 		<dl>
 			<dt><label for="firstName">First name</label></dt>
-			<dd><input type="text" name="firstName" id="firstName" class="form-control" placeholder="First name..." /></dd>
+			<dd><input type="text" id="firstName" class="form-control" placeholder="First name..." value="{{user.attributes.firstName}}" /></dd>
 			<dt><label for="firstName">Last name</label></dt>
-			<dd><input type="text" name="lastName" id="lastName" class="form-control" placeholder="Last name..." /></dd>
+			<dd><input type="text" id="lastName" class="form-control" placeholder="Last name..." value="{{user.attributes.lastName}}" /></dd>
+			<dt><label for="birthday">Day of birth</label></dt>
+			<dd><input type="text" id="birthday" class="form-control" value="{{user.attributes.birthday}}" /></dd>
 			<dt></dt>
 			<dd><button type="submit" class="btn btn-success" accesskey="s">Next</buton></dd>
 		</dl>
