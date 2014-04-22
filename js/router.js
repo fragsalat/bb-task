@@ -1,15 +1,50 @@
 define([
 	'backbone',
 	'view/HomeView',
+	'view/registration/RegistrationView',
 	'view/HeaderView'
-], function(Backbone, HomeView, HeaderView) {
+], function(Backbone, HomeView, RegistrationView, HeaderView) {
 
 	/**
 	 * Create application router class
 	 */
 	var Router = Backbone.Router.extend({
+
+		/**
+		 * Instance of current view
+		 * @type object
+		 */
+		currentView: null,
+
+		/**
+		 * Map of action callback pairs
+		 * @type object
+		 */
 		routes: {
-			'*actions': 'defaultAction'
+			'register': 'register',
+			'*actions': 'home'
+		},
+
+		/**
+		 * Initialize and render the homepage controller
+		 */
+		home: function() {
+			if (this.currentView && this.currentView.remove) {
+				this.currentView.undelegateEvents();
+			}
+			this.currentView = new HomeView();
+			this.currentView.render();
+		},
+
+		/**
+		 * Initialize and render the homepage controller
+		 */
+		register: function() {
+			if (this.currentView && this.currentView.remove) {
+				this.currentView.undelegateEvents();
+			}
+			this.currentView = new RegistrationView();
+			this.currentView.render();
 		}
 	});
 
@@ -17,14 +52,6 @@ define([
 		initialize: function() {
 			var $route = new Router();
 
-			/**
-			 * Handle home page and undefined routes
-			 */
-			$route.on('route:defaultAction', function(actions) {
-				// Initialize and render the homepage controller
-				var $home = new HomeView();
-				$home.render();
-			});
 			// Initialize the header
 			var $header = new HeaderView();
 			$header.render();

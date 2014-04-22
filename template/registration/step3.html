@@ -1,0 +1,27 @@
+<p class="alert alert-success">
+	Thanks for registering :)
+</p>
+
+<fieldset class="container margin-top">
+	<legend>Personal data</legend>
+	
+	<dl>
+		<dt>Name:</dt>
+		<dd>{{user.attributes.firstName}} {{user.attributes.lastName}}</dd>
+		<dt>Birthday:</dt>
+		<dd>{{user.attributes.birthday}}</dd>
+	</dl>
+</div>
+
+<fieldset class="container margin-top">
+	<legend>Bank accounts</legend>
+	
+	{{#each bankAccounts.models}}
+	<dl>
+		<dt>IBAN:</dt>
+		<dd>{{this.attributes.iban}}</dd>
+		<dt>BIC:</dt>
+		<dd>{{this.attributes.bic}}</dd>
+	</dl>
+	{{/each}}
+</div>

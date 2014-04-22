@@ -1,8 +1,7 @@
 define([
-	'jquery',
 	'backbone',
 	'text!template/header.html'
-], function($, Backbone, headerTemplate) {
+], function(Backbone, template) {
 
 	/**
 	 * Define header view controller
@@ -18,7 +17,7 @@ define([
 		 * Render the header including menu and login form
 		 */
 		render: function() {
-			this.$el.html(headerTemplate);
+			this.$el.html(template);
 		}
 	});
 

@@ -1,17 +1,40 @@
 <form method="POST" class="step">
+	<div class="progress progress-striped">
+	  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100" style="width: 66%;">
+	    <span>66% Complete</span>
+	  </div>
+	</div>
 	<fieldset>
 		<legend>Bank Account</legend>
 
 		<dl>
 			<dt><label for="iban">IBAN</label></dt>
-			<dd><input type="text" name="iban" id="iban" class="form-control" placeholder="IBAN..." /></dd>
+			<dd><input type="text" name="iban" id="iban" class="form-control" placeholder="IBAN..." required/></dd>
 			<dt><label for="bic">BIC</label></dt>
-			<dd><input type="text" name="bic" id="bic" class="form-control" placeholder="BIC..." /></dd>
+			<dd><input type="text" name="bic" id="bic" class="form-control" placeholder="BIC..." required/></dd>
 			<dt></dt>
 			<dd>
-				<button type="button" class="btn" id="previous" accesskey="p">Previous</buton>
-				<button type="submit" class="btn btn-success" accesskey="s">Next</buton>
+				<button type="button" class="btn" id="previous" accesskey="p">Previous</button>
+				<button type="button" class="btn btn-info" id="add-account" accesskey="p">Add another account</button>
+				<button type="submit" class="btn btn-success" accesskey="s">Save</button>
 			</dd>
 		</dl>
 	</fieldset>
+
+	<fieldset class="container margin-top">
+		<legend>Bank accounts</legend>
+		
+		{{#each bankAccounts.models}}
+		<dl>
+			<dt>IBAN:</dt>
+			<dd>{{this.attributes.iban}}</dd>
+			<dt>BIC:</dt>
+			<dd>{{this.attributes.bic}}</dd>
+			<dt></dt>
+			<dd><button class="btn btn-default remove-account" data-account-id="{{@index}}">Remove</button></dt>
+		</dl>
+		{{else}}
+			<p class="alert alert-info">No accounts added yet!</p>
+		{{/each}}
+	</div>
 </form>

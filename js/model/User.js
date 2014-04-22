@@ -24,7 +24,6 @@ define([
 
 		/**
 		 * Validate the user properties
-		 *
 		 * @param  Object properties New user property values
 		 * @param  Object options
 		 * @return String Error if validation fails

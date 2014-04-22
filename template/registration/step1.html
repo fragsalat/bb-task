@@ -1,12 +1,17 @@
 <form method="POST" class="step">
+	<div class="progress progress-striped">
+	  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="width: 33%;">
+	    <span>33% Complete</span>
+	  </div>
+	</div>
 	<fieldset>
 		<legend>Personal data</legend>
 
 		<dl>
 			<dt><label for="firstName">First name</label></dt>
-			<dd><input type="text" id="firstName" class="form-control" placeholder="First name..." value="{{user.attributes.firstName}}" /></dd>
+			<dd><input type="text" id="firstName" class="form-control" placeholder="First name..." value="{{user.attributes.firstName}}" required/></dd>
 			<dt><label for="firstName">Last name</label></dt>
-			<dd><input type="text" id="lastName" class="form-control" placeholder="Last name..." value="{{user.attributes.lastName}}" /></dd>
+			<dd><input type="text" id="lastName" class="form-control" placeholder="Last name..." value="{{user.attributes.lastName}}" required/></dd>
 			<dt><label for="birthday">Day of birth</label></dt>
 			<dd><input type="text" id="birthday" class="form-control" value="{{user.attributes.birthday}}" /></dd>
 			<dt></dt>
