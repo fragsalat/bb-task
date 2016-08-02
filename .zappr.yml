@@ -1,0 +1,10 @@
+approvals:
+  minimum: 2
+  ignore: none
+  pattern: "^(:\\+1:|👍)$"
+  veto:
+    # veto/blocking a PR = comment that matches this regex
+    pattern: "^(:\\-1:|👎)$"
+linktitle:
+  url: "https://github.com/${owner}/${repo}/issues"
+  pattern: "^#[0-9]+"
