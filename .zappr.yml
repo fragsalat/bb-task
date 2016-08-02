@@ -7,4 +7,4 @@ approvals:
     pattern: "^(:\\-1:|👎)$"
 linkticket:
   url: "https://github.com/${owner}/${repo}/issues"
-  pattern: "^#[0-9]+"
+  pattern: "^#([0-9]+)"
