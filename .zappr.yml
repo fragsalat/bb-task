@@ -5,6 +5,6 @@ approvals:
   veto:
     # veto/blocking a PR = comment that matches this regex
     pattern: "^(:\\-1:|👎)$"
-linktitle:
+linkticket:
   url: "https://github.com/${owner}/${repo}/issues"
   pattern: "^#[0-9]+"
